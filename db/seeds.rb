@@ -7,6 +7,7 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 #Create at least one user by running the following code:
+require 'json'
 
 first_user = User.create(name: 'Tom', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Teacher from Mexico.')
 second_user = User.create(name: 'Lilly', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Teacher from Poland.')
@@ -20,7 +21,7 @@ fourth_post = Post.create(author: second_user, title: 'Hello', text: 'This is my
 
 #Create at least 6 posts comments for one of the posts you created by running the following code:
 
-Comment.create(post: first_post, author: first_user, text: 'Hi Tom!, This is my first comment' )
+first_comment = Comment.create(post: first_post, author: first_user, text: 'Hi Tom!, This is my first comment' )
 Comment.create(post: second_post, author: second_user, text: 'Hi Tom!, This is my second comment' )
 Comment.create(post: third_post, author: first_user, text: 'Hi Tom!, This is my third comment' )
 Comment.create(post: fourth_post, author: second_user, text: 'Hi Tom!, This is my fourth comment' )
@@ -30,6 +31,28 @@ Comment.create(post: second_post, author: second_user, text: 'Hi Tom!, This is m
 #Create at least 4 likes by you created by running the following code:
 
 first_like= Like.create(post: first_post, author: first_user)
-second_like= Like.create(post: second_post, author: second_user)
-third_like= Like.create(post: third_post, author: first_user)
-fourth_like= Like.create(post: fourth_post, author: second_user)
+Like.create(post: second_post, author: second_user)
+Like.create(post: third_post, author: first_user)
+Like.create(post: fourth_post, author: second_user)
+
+#Output 
+
+puts
+puts('Recent posts:')
+puts(first_user.recent_posts.to_json)
+puts
+puts('Recent comments:')
+puts(first_post.recent_comments.to_json)
+
+first_post.update_posts_counter
+puts
+puts('Post counter: ')
+puts(first_post.author.post_counter)
+
+first_comment.update_comments_counter
+puts('Comments counter: ')
+puts(first_comment.post.comments_counter)
+
+first_like.update_likes_counter
+puts('likes counter: ')    
+puts(first_like.post.likes_counter)
