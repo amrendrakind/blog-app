@@ -4,7 +4,7 @@ class Post < ApplicationRecord
   has_many :likes
 
   # Method that updates the posts counter for a user.
-  
+
   def update_posts_counter
     author.update(posts_counter: author.post.count)
   end
