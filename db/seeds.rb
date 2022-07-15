@@ -9,31 +9,31 @@
 #Create at least one user by running the following code:
 require 'json'
 
-first_user = User.create(name: 'Tom', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Teacher from Mexico.')
-second_user = User.create(name: 'Lilly', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Teacher from Poland.')
+first_user = User.create(name: 'Tom', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Teacher from Mexico.', post_counter: 0)
+second_user = User.create(name: 'Lilly', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Teacher from Poland.', post_counter: 0)
 
 #Create at least 4 posts written by one of the users you created by running the following code:
 
-first_post = Post.create(author: first_user, title: 'Hello', text: 'This is my first post')
-second_post = Post.create(author: second_user, title: 'Hello', text: 'This is my second post')
-third_post = Post.create(author: first_user, title: 'Hello', text: 'This is my third post')
-fourth_post = Post.create(author: second_user, title: 'Hello', text: 'This is my fourth post')
+first_post = Post.create(author_id: first_user.id, title: 'Hello', text: 'This is my first post', comments_counter: 0, likes_counter: 0)
+second_post = Post.create(author_id: second_user.id, title: 'Hello', text: 'This is my second post', comments_counter: 0, likes_counter: 0)
+third_post = Post.create(author_id: first_user.id, title: 'Hello', text: 'This is my third post', comments_counter: 0, likes_counter: 0)
+fourth_post = Post.create(author_id: second_user.id, title: 'Hello', text: 'This is my fourth post', comments_counter: 0, likes_counter: 0)
 
 #Create at least 6 posts comments for one of the posts you created by running the following code:
 
-first_comment = Comment.create(post: first_post, author: first_user, text: 'Hi Tom!, This is my first comment' )
-Comment.create(post: second_post, author: second_user, text: 'Hi Tom!, This is my second comment' )
-Comment.create(post: third_post, author: first_user, text: 'Hi Tom!, This is my third comment' )
-Comment.create(post: fourth_post, author: second_user, text: 'Hi Tom!, This is my fourth comment' )
-Comment.create(post: first_post, author: first_user, text: 'Hi Tom!, This is my fifth comment' )
-Comment.create(post: second_post, author: second_user, text: 'Hi Tom!, This is my sixth comment' )
+first_comment = Comment.create(post_id: first_post.id, author_id: first_user.id, text: 'Hi Tom!, This is my first comment' )
+Comment.create(post_id: second_post.id, author_id: second_user.id, text: 'Hi Tom!, This is my second comment' )
+Comment.create(post_id: third_post.id, author_id: first_user.id, text: 'Hi Tom!, This is my third comment' )
+Comment.create(post_id: fourth_post.id, author_id: second_user.id, text: 'Hi Tom!, This is my fourth comment' )
+Comment.create(post_id: first_post.id, author_id: first_user.id, text: 'Hi Tom!, This is my fifth comment' )
+Comment.create(post_id: second_post.id, author_id: second_user.id, text: 'Hi Tom!, This is my sixth comment' )
 
 #Create at least 4 likes by you created by running the following code:
 
-first_like= Like.create(post: first_post, author: first_user)
-Like.create(post: second_post, author: second_user)
-Like.create(post: third_post, author: first_user)
-Like.create(post: fourth_post, author: second_user)
+first_like= Like.create(post_id: first_post.id, author_id: first_user.id)
+Like.create(post_id: second_post.id, author_id: second_user.id)
+Like.create(post_id: first_post.id, author_id: first_user.id)
+Like.create(post_id: fourth_post.id, author_id: second_user.id)
 
 #Output 
 
