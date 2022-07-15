@@ -11,12 +11,12 @@ RSpec.describe Post, type: :model do
     @post.save
   end
   context 'Posts validations' do
-    it 'title should not be blank' do
+    it 'Title must not be blank.' do
       @post.title = ''
       expect(@post).to_not be_valid
     end
 
-    it 'title should not exceed 250 characters' do
+    it 'Title must not exceed 250 characters' do
       @post.title = 'A' * 251
       expect(@post).to_not be_valid
     end
