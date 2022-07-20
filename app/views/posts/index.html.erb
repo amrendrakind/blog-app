@@ -1,6 +1,12 @@
 <h1>This is all posts of users</h1>
 
-<% @posts.each do |post| %>
-    Title: <%= post.title %><br>
-    Text: <%= post.text %><br>
-  <% end %>
+<div id="postTemplate">
+   <%= render partial: "shared/single_user", locals: { user: @user } %>
+<% @user.posts.each do |post| %>
+     <%= render partial: "shared/single_post", locals: { post: post } %>
+     <% post.comments.each do |comment| %>
+         <label><%= comment.text%></label>
+     <% end %>
+<% end %>
+<%= button_to "See all posts"%>
+ </div> 
