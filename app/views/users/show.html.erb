@@ -1,3 +1,9 @@
 <h1>This is for specific user</h1>
-<h1> Name: <%= @user.name %> </h1>
+<div id="userTemplate">
+   <%= render partial: "shared/single_user", locals: { user: @user } %>
+<% @user.posts.each do |post| %>
+     <%= render partial: "shared/single_post", locals: { post: post } %>
+<% end %>
+<%= button_to "See all posts"%>
+ </div>
 

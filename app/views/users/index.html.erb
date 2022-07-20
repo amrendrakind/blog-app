@@ -1,6 +1,7 @@
 <h1>This is for all users</h1>
 
-<h1>Names of all the user</h1>
-<% @users.each do |user| %>
-  Name: <%= user.name %><br>
-<% end %>
+<div id="users">
+  <% @users.each do |user| %>
+    <%= render partial: "shared/single_user", locals: { user: user } %>
+  <% end %>
+</div>
