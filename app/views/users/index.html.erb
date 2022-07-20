@@ -1,1 +1,6 @@
 <h1>This is for all users</h1>
+
+<h1>Names of all the user</h1>
+<% @users.each do |user| %>
+  Name: <%= user.name %><br>
+<% end %>
