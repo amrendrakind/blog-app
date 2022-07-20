@@ -1,1 +1,1 @@
-json.partial! "logins/login", login: @login
+json.partial! 'logins/login', login: @login

@@ -1,1 +1,1 @@
-json.array! @logins, partial: "logins/login", as: :login
+json.array! @logins, partial: 'logins/login', as: :login
