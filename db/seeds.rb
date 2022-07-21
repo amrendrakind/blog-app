@@ -26,19 +26,19 @@ eighth_post = Post.create(author_id: second_user.id, title: 'Hello', text: 'This
 
 #Create at least 6 posts comments for one of the posts you created by running the following code:
 
-first_comment = Comment.create(post_id: first_post.id, author_id: first_user.id, text: 'Hi Tom!, This is my first comment' )
-Comment.create(post_id: first_post.id, author_id: second_user.id, text: 'Hi Tom!, This is my second comment' )
-Comment.create(post_id: first_post.id, author_id: first_user.id, text: 'Hi Tom!, This is my third comment' )
-Comment.create(post_id: first_post.id, author_id: second_user.id, text: 'Hi Tom!, This is my fourth comment' )
-Comment.create(post_id: first_post.id, author_id: first_user.id, text: 'Hi Tom!, This is my fifth comment' )
-Comment.create(post_id: first_post.id, author_id: second_user.id, text: 'Hi Tom!, This is my sixth comment' )
+first_comment = Comment.create(post_id: fourth_post.id, author_id: first_user.id, text: 'Hi Tom!, This is my first comment' )
+Comment.create(post_id: fourth_post.id, author_id: second_user.id, text: 'Hi Tom!, This is my second comment' )
+Comment.create(post_id: fourth_post.id, author_id: first_user.id, text: 'Hi Tom!, This is my third comment' )
+Comment.create(post_id: fourth_post.id, author_id: second_user.id, text: 'Hi Tom!, This is my fourth comment' )
+Comment.create(post_id: fourth_post.id, author_id: first_user.id, text: 'Hi Tom!, This is my fifth comment' )
+Comment.create(post_id: fourth_post.id, author_id: second_user.id, text: 'Hi Tom!, This is my sixth comment' )
 
-second_comment = Comment.create(post_id: fifth_post.id, author_id: first_user.id, text: 'Hi Lilly!, This is my first comment' )
-Comment.create(post_id: fifth_post.id, author_id: second_user.id, text: 'Hi Lilly!, This is my second comment' )
-Comment.create(post_id: fifth_post.id, author_id: first_user.id, text: 'Hi Lilly!, This is my third comment' )
-Comment.create(post_id: fifth_post.id, author_id: second_user.id, text: 'Hi Lilly!, This is my fourth comment' )
-Comment.create(post_id: fifth_post.id, author_id: first_user.id, text: 'Hi Lilly!, This is my fifth comment' )
-Comment.create(post_id: fifth_post.id, author_id: second_user.id, text: 'Hi Lilly!, This is my sixth comment' )
+second_comment = Comment.create(post_id: eighth_post.id, author_id: first_user.id, text: 'Hi Lilly!, This is my first comment' )
+Comment.create(post_id: eighth_post.id, author_id: second_user.id, text: 'Hi Lilly!, This is my second comment' )
+Comment.create(post_id: eighth_post.id, author_id: first_user.id, text: 'Hi Lilly!, This is my third comment' )
+Comment.create(post_id: eighth_post.id, author_id: second_user.id, text: 'Hi Lilly!, This is my fourth comment' )
+Comment.create(post_id: eighth_post.id, author_id: first_user.id, text: 'Hi Lilly!, This is my fifth comment' )
+Comment.create(post_id: eighth_post.id, author_id: second_user.id, text: 'Hi Lilly!, This is my sixth comment' )
 
 #Create at least 4 likes by you created by running the following code:
 

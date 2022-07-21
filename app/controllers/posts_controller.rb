@@ -9,4 +9,5 @@ class PostsController < ApplicationController
     @post=User.includes(:posts, :comments).find(params[:user_id]).posts.find(params[:id])
     @comments = @post.recent_comments
   end
+
 end
