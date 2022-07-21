@@ -1,14 +1,5 @@
-<p style="color: green"><%= notice %></p>
-
-<h1>Logins</h1>
-
-<div id="logins">
-  <% @logins.each do |login| %>
-    <%= render login %>
-    <p>
-      <%= link_to "Show this login", login %>
-    </p>
-  <% end %>
-</div>
-
-<%= link_to "New login", new_login_path %>
+<form id="loginForm" action="/login" method="get" accept-charset="UTF-8" >
+  <input id="username" name="username" type="text" placeholder="Username" />
+  <input id="password" name="password" type="password" placeholder="Password" />
+  <input name="logIn" type="submit" value="Log in" />
+</form>
