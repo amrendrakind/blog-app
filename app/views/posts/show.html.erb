@@ -1,9 +1,4 @@
 <h1>This is specific post of specific users</h1>
 
-<%= render @post %>
 
-<div>
-  <%= link_to "Edit this post", edit_post_path(@post) %> |
-  <%= link_to "Back to posts", posts_path %>
-  <%= button_to "Destroy this post", @post, method: :delete %>
-</div> 
+<%= render partial: "shared/single_post", locals: { post: @post } %>
