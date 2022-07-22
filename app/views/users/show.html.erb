@@ -9,5 +9,5 @@
 <% @posts.each do |post| %>
      <%= render partial: "shared/single_post", locals: { post: post } %>
 <% end %>
-<%= button_to "See all posts", {controller: "posts", action: "index"}, method:'get'%>
+<%= button_to "See all posts", user_posts_path(@user)%>
  </div>
