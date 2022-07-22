@@ -64,17 +64,23 @@
   text-align: right;
 }
 
+#newPostTemplate,
 #userTemplate,
 #postTemplate {
   display: flex;
   flex-direction: column;
   align-items: center;
+  border: 1px solid black;
+  margin-left: auto;
+  margin-right: auto;
+  width: 375px;
 }
 
 button {
   margin-top: 20px;
 }
 
+#newPostTemplate,
 #loginForm {
   display: flex;
   flex-direction: column;

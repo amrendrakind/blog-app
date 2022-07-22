@@ -16,15 +16,15 @@ class PostsController < ApplicationController
   end
 
   def create
-    # parameters= post_params
-    # @post= Post.new(author_id: current_user.id, title: parameters[:title], text: parameters[:text], comments_counter: 0, likes_counter: 0)
-    post = Post.new(post_params)
-    post.author_id = current_user.id
-    @post.save
-    
+    parameters= post_params
+    post= Post.new(author_id: current_user.id, title: parameters[:title], text: parameters[:text], comments_counter: 0, likes_counter: 0)
+    post.save
+    post.update_posts_counter
     if post.save
-      redirect_to user_posts_path(current_user)
+      # puts "Saved successfully"
+      redirect_to user_path(current_user)
     else
+      # puts "Failed to save"
       redirect_to new_user_post_path
     end
   
