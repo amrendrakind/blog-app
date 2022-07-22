@@ -7,7 +7,7 @@
    <p><%= @user.bio %></p>
    </div>
 <% @posts.each do |post| %>
-     <%= render partial: "shared/single_post", locals: { post: post } %>
+     <%= render partial: "shared/single_post", locals: {user:@user, post: post } %>
 <% end %>
 <%= button_to link_to "See all posts", user_posts_path(@user)%>
 <%= button_to link_to "New Post", new_user_post_path(@user)%>
