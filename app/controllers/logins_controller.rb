@@ -3,9 +3,8 @@ class LoginsController < ApplicationController
 
   # GET /logins or /logins.json
   def index
-    @logins = Login.all
+    @login = Login.all
   end
-
   # GET /logins/1 or /logins/1.json
   def show; end
 

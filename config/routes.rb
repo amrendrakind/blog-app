@@ -10,7 +10,10 @@ Rails.application.routes.draw do
   #     resources :comments, only: [:index, :show]
   #   end
   # end
+  # resources :login, only: [:index, :show] do
 
+  # end
+  get '/login', to: 'login#index'
   get "/users", to: "users#index" 
   get "/users/:user_id", to: "users#show" 
   get "/users/:user_id/posts", to: "posts#index" 
