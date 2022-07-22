@@ -1,1 +1,16 @@
-<h1>This is specific post of specific users</h1>
+<h1 class="post_heading">This is specific post of specific users</h1>
+
+<div id="postTemplate">
+    <div id="singlePost">
+        <div id="postHeader">
+                <h3 class="post_title">Post <%= @post.id %> by <%= @user.name %> </h3>
+                <label class="counters">Comments:<%= @post.comments_counter %> Likes:<%= @post.likes_counter %> </label>
+        </div>  
+        <p><%= @post.text %></p>
+    </div>
+    <div id="commentsSection">
+                <% @comments.each do |comment| %>
+                <%= render partial: "shared/single_comment", locals: { comment: comment } %>
+                <% end %>
+     </div>
+</div>

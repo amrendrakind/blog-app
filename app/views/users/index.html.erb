@@ -1,1 +1,7 @@
-<h1>This is for all users</h1>
+<h1 class="post_heading">This is for all users</h1>
+
+<div id="users">
+  <% @users.each do |user| %>
+    <%= render partial: "shared/single_user", locals: { user: user } %>
+  <% end %>
+</div>

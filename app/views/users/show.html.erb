@@ -1,1 +1,13 @@
-<h1>This is for specific user</h1>
+<h1 class="post_heading">This is for specific user</h1>
+
+<div id="userTemplate">
+   <%= render partial: "shared/single_user", locals: { user: @user } %>
+   <div id="bio">
+   <h3>Bio</h3>
+   <p><%= @user.bio %></p>
+   </div>
+<% @posts.each do |post| %>
+     <%= render partial: "shared/single_post", locals: { post: post } %>
+<% end %>
+<%= button_to "See all posts", {controller: "posts", action: "index"}, method:'get'%>
+ </div>
