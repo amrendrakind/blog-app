@@ -5,6 +5,7 @@ class LoginsController < ApplicationController
   def index
     @login = Login.all
   end
+
   # GET /logins/1 or /logins/1.json
   def show; end
 
