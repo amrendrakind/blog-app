@@ -13,4 +13,5 @@
                 <%= render partial: "shared/single_comment", locals: { comment: comment } %>
                 <% end %>
      </div>
+     <%= button_to link_to "New Comment", new_user_post_comment_path(@user.id, @post.id) %>
 </div>

@@ -19,7 +19,7 @@ class PostsController < ApplicationController
     parameters= post_params
     post= Post.new(author_id: current_user.id, title: parameters[:title], text: parameters[:text], comments_counter: 0, likes_counter: 0)
     post.save
-    post.update_posts_counter
+    # post.update_posts_counter
     if post.save
       # puts "Saved successfully"
       redirect_to user_path(current_user)
