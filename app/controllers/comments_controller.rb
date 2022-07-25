@@ -8,7 +8,6 @@ class CommentsController < ApplicationController
 
   def create
     parameters = comment_params
-    puts parameters
     comment = Comment.new(post_id: params[:post_id], author_id: current_user.id, text: parameters[:text])
     comment.save
 
