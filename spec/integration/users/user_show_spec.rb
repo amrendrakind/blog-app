@@ -7,12 +7,12 @@ RSpec.describe 'User index page', type: :system do
                               bio: 'Teacher from Mexico.', post_counter: 0)
   end
   it 'I can see the username of all other users' do
-    visit '/users/'
+    visit "/users/#{@first_user.id}"
     expect(page).to have_content('Tom')
   end
 
   it 'I can see the profile picture for each user.' do
-    visit '/users/'
+    visit "/users/#{@first_user.id}"
     expect(page).to have_css("img[src*='https://unsplash.com/photos/F_-0BxGuVvo']")
   end
 
@@ -20,7 +20,7 @@ RSpec.describe 'User index page', type: :system do
     first_post = Post.create(author_id: @first_user.id, title: 'Hello', text: 'This is my first post',
                              comments_counter: 0, likes_counter: 0)
     first_post.update_posts_counter
-    visit '/users/'
+    visit "/users/#{@first_user.id}"
     expect(page).to have_content('Number of posts: 1')
   end
 
