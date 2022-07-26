@@ -36,6 +36,11 @@ RSpec.describe 'User post show page', type: :system do
     expect(page).to have_content(@first_post.text)
   end
 
+  it "I can see the username of each commentor." do
+    visit "/users/#{@first_user.id}/posts/#{@first_post.id}"
+    expect(page).to have_content("Username: #{@first_user.name}")
+  end
+
 
 
 end
