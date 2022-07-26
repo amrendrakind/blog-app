@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'User post index page', type: :system do
+RSpec.describe 'User post show page', type: :system do
   before(:all) do
     @first_user = User.create(name: 'Tom', photo: 'https://unsplash.com/photos/F_-0BxGuVvo',bio: 'Teacher from Mexico.', post_counter: 0)
 
@@ -13,4 +13,10 @@ RSpec.describe 'User post index page', type: :system do
     expect(page).to have_content(@first_post.title)
   end
 
+  it "I can see who wrote the post." do
+    visit "/users/#{@first_user.id}/posts/#{@first_post.id}"
+    expect(page).to have_content(@first_user.name)
+  end
+
+  
 end
