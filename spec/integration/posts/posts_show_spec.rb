@@ -23,6 +23,11 @@ RSpec.describe 'User post show page', type: :system do
     visit "/users/#{@first_user.id}/posts/#{@first_post.id}"
     expect(page).to have_content ('1')
   end
- 
+
+  it "I can see how many likes it has." do
+    visit "/users/#{@first_user.id}/posts/#{@first_post.id}"
+    expect(page).to have_content ('1')
+  end
+  
   
 end
