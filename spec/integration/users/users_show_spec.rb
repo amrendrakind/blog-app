@@ -41,4 +41,18 @@ RSpec.describe 'User index page', type: :system do
     expect(page).to have_content('Bio')
     expect(page).to have_content('Teacher from Poland.')
   end
+
+  it "I can see the user's first 3 posts." do
+
+    first_post = Post.create(author_id: @first_user.id, title: 'Hello', text: 'This is my first post', comments_counter: 0, likes_counter: 0)
+    second_post = Post.create(author_id: @first_user.id, title: 'Hello', text: 'This is my second post', comments_counter: 0, likes_counter: 0)
+    third_post = Post.create(author_id: @first_user.id, title: 'Hello', text: 'This is my third post', comments_counter: 0, likes_counter: 0)
+    fourth_post = Post.create(author_id: @first_user.id, title: 'Hello', text: 'This is my fourth post', comments_counter: 0, likes_counter: 0)     
+    
+    visit "/users/#{ @first_user.id}"
+    expect(page).to have_content('Post #', maximum:3) 
+    visit "/users/#{ @second_user.id}"
+    expect(page).to have_content('Post #', maximum:3) 
+  end
+
 end
