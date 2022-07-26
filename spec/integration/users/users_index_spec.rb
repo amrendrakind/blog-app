@@ -2,7 +2,8 @@ require 'rails_helper'
 
 RSpec.describe 'User index page', type: :system do
   before(:all) do
-    @first_user = User.create(name: 'Lilly', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Teacher from Mexico.', post_counter: 0)
+    @first_user = User.create(name: 'Lilly', photo: 'https://unsplash.com/photos/F_-0BxGuVvo',
+                              bio: 'Teacher from Mexico.', post_counter: 0)
   end
   it 'I can see the username of all other users' do
     visit "/users/#{@first_user.id}"
