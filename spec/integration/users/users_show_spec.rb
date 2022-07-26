@@ -56,9 +56,17 @@ RSpec.describe 'User index page', type: :system do
   end
 
   it "I can see a button that lets me view all of a user's posts." do
-    first_post = Post.create(author_id: @first_user.id, title: 'Hello', text: 'This is my first post', comments_counter: 0, likes_counter: 0)
+    @first_post = Post.create(author_id: @first_user.id, title: 'Hello', text: 'This is my first post', comments_counter: 0, likes_counter: 0)
     visit "/users/#{ @first_user.id}"
    expect(page).to have_button('See all posts')
   end
+
+  it "When I click a user's post, it redirects me to that post's show page." do
+    @first_post = Post.create(author_id: @first_user.id, title: 'Hello', text: 'This is my first post', comments_counter: 0, likes_counter: 0)
+     visit "/users/#{ @first_user.id}"
+    click_link("Post ##{@first_post.id}")
+    expect(page).to have_content('This is my first post') 
+   end
+   
 
 end
