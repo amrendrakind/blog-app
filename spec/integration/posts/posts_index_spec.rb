@@ -53,5 +53,11 @@ RSpec.describe 'User post index page', type: :system do
         expect(page).to have_content('Comments:1')
     end
 
+    it 'I can see how many likes a post has.' do 
+        first_like= Like.create(post_id: @third_post.id, author_id: @first_user.id)
+        visit "/users/#{ @first_user.id}/posts"
+        expect(page).to have_content('Likes:1')
+    end
+
 
 end
