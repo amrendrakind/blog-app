@@ -2,7 +2,8 @@ require 'rails_helper'
 
 RSpec.describe 'User post index page', type: :system do
     before(:all) do
-        User.destroy_all
+        # User.destroy_all
+
         @first_user = User.create(name: 'Tom', photo: 'https://unsplash.com/photos/F_-0BxGuVvo',
         bio: 'Teacher from Mexico.', post_counter: 0)
 
@@ -21,4 +22,8 @@ RSpec.describe 'User post index page', type: :system do
         expect(page).to have_css("img[src*='https://unsplash.com/photos/F_-0BxGuVvo']")
     end
 
+    # it 'I can see the users username.' do 
+    #     visit "/users/#{ @first_user.id}/posts"
+    #     expect(page).to have_content('Tom')
+    # end
 end

@@ -2,13 +2,13 @@ require 'rails_helper'
 
 RSpec.describe 'User index page', type: :system do
   before(:all) do
-    User.destroy_all
-    @first_user = User.create(name: 'Tom', photo: 'https://unsplash.com/photos/F_-0BxGuVvo',
+    # User.destroy_all
+    @first_user = User.create(name: 'Lilly', photo: 'https://unsplash.com/photos/F_-0BxGuVvo',
                               bio: 'Teacher from Mexico.', post_counter: 0)
   end
   it 'I can see the username of all other users' do
     visit "/users/#{@first_user.id}"
-    expect(page).to have_content('Tom')
+    expect(page).to have_content('Lilly')
   end
 
   it 'I can see the profile picture for each user.' do
@@ -29,7 +29,7 @@ RSpec.describe 'User index page', type: :system do
                              comments_counter: 0, likes_counter: 0)
     first_post.update_posts_counter
     visit '/users/'
-    click_link('Tom')
+    click_link('Lilly')
     expect(page).to have_content('Teacher from Mexico.')
   end
 end
