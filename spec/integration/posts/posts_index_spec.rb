@@ -64,5 +64,9 @@ RSpec.describe 'User post index page', type: :system do
         expect(page).to have_button('Paginations')
     end
 
-
+    it 'When I click on a post, it redirects me to that posts show page.' do 
+        visit "/users/#{ @first_user.id}/posts"
+        link= find_link("Post ##{@second_post.id}")
+        expect(page).to have_content('Post #') 
+    end
 end
