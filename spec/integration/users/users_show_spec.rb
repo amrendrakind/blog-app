@@ -67,6 +67,14 @@ RSpec.describe 'User index page', type: :system do
     click_link("Post ##{@first_post.id}")
     expect(page).to have_content('This is my first post') 
    end
-   
 
+    it "When I click to see all posts, it redirects me to the user's post's index page." do
+        first_post = Post.create(author_id: @first_user.id, title: 'Hello', text: 'This is my first post', comments_counter: 0, likes_counter: 0)
+        second_post = Post.create(author_id: @first_user.id, title: 'Hello', text: 'This is my second post', comments_counter: 0, likes_counter: 0)
+        third_post = Post.create(author_id: @first_user.id, title: 'Hello', text: 'This is my third post', comments_counter: 0, likes_counter: 0)
+        fourth_post = Post.create(author_id: @first_user.id, title: 'Hello', text: 'This is my fourth post', comments_counter: 0, likes_counter: 0)     
+        visit "/users/#{ @first_user.id}"
+        click_button 'See all posts'
+        expect(page).to have_content('Post #', minimum:1) 
+    end
 end
