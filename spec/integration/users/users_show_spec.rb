@@ -33,4 +33,12 @@ RSpec.describe 'User index page', type: :system do
     expect(page).to have_content('Number of posts: 0')
   end
 
+  it "I can see the user's bio." do
+    visit "/users/#{ @first_user.id}"
+    expect(page).to have_content('Bio')
+    expect(page).to have_content('Teacher from Mexico.')
+    visit "/users/#{@second_user.id}"
+    expect(page).to have_content('Bio')
+    expect(page).to have_content('Teacher from Poland.')
+  end
 end
