@@ -55,4 +55,10 @@ RSpec.describe 'User index page', type: :system do
     expect(page).to have_content('Post #', maximum:3) 
   end
 
+  it "I can see a button that lets me view all of a user's posts." do
+    first_post = Post.create(author_id: @first_user.id, title: 'Hello', text: 'This is my first post', comments_counter: 0, likes_counter: 0)
+    visit "/users/#{ @first_user.id}"
+   expect(page).to have_button('See all posts')
+  end
+
 end
