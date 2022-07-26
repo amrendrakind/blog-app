@@ -23,6 +23,14 @@ RSpec.describe 'User index page', type: :system do
     expect(page).to have_content('Lilly')
   end
 
-
+  it 'I can see the number of posts the user has written.' do
+    first_post = Post.create(author_id: @first_user.id, title: 'Hello', text: 'This is my first post',
+                             comments_counter: 0, likes_counter: 0)
+    first_post.update_posts_counter
+    visit "/users/#{ @first_user.id}"
+    expect(page).to have_content('Number of posts: 1')
+    visit "/users/#{ @second_user.id}"
+    expect(page).to have_content('Number of posts: 0')
+  end
 
 end
