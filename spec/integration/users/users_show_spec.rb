@@ -16,6 +16,13 @@ RSpec.describe 'User index page', type: :system do
     expect(page).to have_css("img[src*='https://unsplash.com/photos/F_-0BxGuVvo']")
   end
 
+  it 'I can see the username of all other users' do
+    visit "/users/#{ @first_user.id}"
+    expect(page).to have_content('Tom')
+    visit "/users/#{@second_user.id}"
+    expect(page).to have_content('Lilly')
+  end
+
 
 
 end
