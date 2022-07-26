@@ -41,5 +41,11 @@ RSpec.describe 'User post index page', type: :system do
         expect(page).to have_content('Likes:0', count:3)
     end
 
-    
+    it 'I can see the first comments on a post.' do 
+        @first_comment=Comment.create(post_id: @third_post.id, author_id: @first_user.id, text: 'This is my first comment' )
+        visit "/users/#{ @first_user.id}/posts"
+        expect(page).to have_content(@first_comment.text)
+    end
+
+
 end
