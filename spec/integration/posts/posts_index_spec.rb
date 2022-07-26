@@ -59,5 +59,10 @@ RSpec.describe 'User post index page', type: :system do
         expect(page).to have_content('Likes:1')
     end
 
+    it 'I can see a section for pagination if there are more posts than fit on the view.' do 
+        visit "/users/#{ @first_user.id}/posts"
+        expect(page).to have_button('Paginations')
+    end
+
 
 end
