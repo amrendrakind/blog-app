@@ -6,7 +6,9 @@ RSpec.describe 'User post show page', type: :system do
 
     @first_post = Post.create(author_id: @first_user.id, title: 'Hello', text: 'This is my first post',comments_counter: 0, likes_counter: 0)
     @first_comment = Comment.create(post_id: @first_post.id, author_id: @first_user.id,text: 'This is my first comment')
+    @first_comment.update_comments_counter
     @first_like= Like.create(post_id: @first_post.id, author_id: @first_user.id)
+    @first_like.update_likes_counter
   end
 
   it "I can see the post's title." do
@@ -21,13 +23,19 @@ RSpec.describe 'User post show page', type: :system do
 
   it "I can see how many comments it has." do
     visit "/users/#{@first_user.id}/posts/#{@first_post.id}"
-    expect(page).to have_content ('1')
+    expect(page).to have_content ('Comments:1')
   end
 
   it "I can see how many likes it has." do
     visit "/users/#{@first_user.id}/posts/#{@first_post.id}"
-    expect(page).to have_content ('1')
+    expect(page).to have_content ('Likes:1')
   end
   
-  
+  it "I can see the post body." do
+    visit "/users/#{@first_user.id}/posts/#{@first_post.id}"
+    expect(page).to have_content(@first_post.text)
+  end
+
+
+
 end
