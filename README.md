@@ -26,19 +26,7 @@ Move into project directory
 
 ## Available Scripts
 
-> `bundle install`
-> `rails s`
-> `access to http://localhost:3000/ or http://[::1]:3000 in your local browser`
 
-## Available Scripts to Run Test cases
-
->Run following command
-
-`gem install rspec`
-
-`rspec --format documentation` or/and
-
-`rspec spec`
 
 ## Author
 
