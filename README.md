@@ -59,6 +59,11 @@ Move into project directory
 - Twitter: [@ElioCortesM](https://twitter.com/ElioCortesM)
 - LinkedIn: [elionelsoncortes](https://www.linkedin.com/in/elionelsoncortes/)
 
+ 👤 **Alejandro Neira**
+- GitHub: [@AlejandroNeira98](https://github.com/AlejandroNeira98)
+- Twitter: [@JANP_19](https://twitter.com/JANP_19)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/alejandro-neira-pachon/)
+
 ## 🤝 Contributing
 
 Contributions, issues, and feature requests are welcome!
