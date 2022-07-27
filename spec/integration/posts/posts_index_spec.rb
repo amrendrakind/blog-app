@@ -32,12 +32,12 @@ RSpec.describe 'User post index page', type: :system do
 
   it 'I can see a posts title.' do
     visit "/users/#{@first_user.id}/posts"
-    expect(page).to have_content('Post #', count: 3)
+    expect(page).to have_content('Post #', count: 4)
   end
 
   it 'I can see some of the posts body.' do
     visit "/users/#{@first_user.id}/posts"
-    expect(page).to have_content('Likes:0', count: 3)
+    expect(page).to have_content('Likes:0', count: 4)
   end
 
   it 'I can see the first comments on a post.' do
