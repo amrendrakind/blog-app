@@ -75,4 +75,4 @@ end
 
 gem 'rubocop', '>= 1.0', '< 2.0'
 
-# gem 'bullet', group: 'development'
+gem 'bullet', group: 'development'
