@@ -1,8 +1,8 @@
 class PostsController < ApplicationController
   def index
-    @user = User.includes(:comments).find(params[:user_id])
-    @posts = User.find(params[:user_id]).recent_posts
-  end
+    @user = User.find(params[:user_id])
+    @posts = @user.posts.includes(:comments)
+    end
 
   def show
     @user = User.find(params[:user_id])

@@ -1,7 +1,7 @@
 class CommentsController < ApplicationController
   def new
     @user = User.find(params[:user_id])
-    @post = User.includes(:posts, :comments).find(params[:user_id]).posts.find(params[:post_id])
+    @post = User.find(params[:user_id]).posts.find(params[:post_id])
     @comments = @post.recent_comments
     # @user = current_user
   end
