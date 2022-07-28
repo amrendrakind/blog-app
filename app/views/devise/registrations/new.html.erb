@@ -6,21 +6,21 @@
   <%= render "devise/shared/error_messages", resource: resource %>
   <div class="field">
     <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: 'Email'%>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: 'Enter Email'%>
   </div>
   <div class="field">
     <%= f.label :name %><br />
-    <%= f.text_field :name, autofocus: true, autocomplete: "name", placeholder: 'Name'%>
+    <%= f.text_field :name, autofocus: true, autocomplete: "name", placeholder: 'Enter Full Name'%>
   </div>
 
   <div class="field">
     <%= f.label :Bio %><br />
-    <%= f.text_field :bio, autofocus: true, autocomplete: "bio", placeholder: 'Bio' %>
+    <%= f.text_field :bio, autofocus: true, autocomplete: "bio", placeholder: 'Enter Bio' %>
   </div>
 
   <div class="field">
     <%= f.label :Photo %><br />
-    <%= f.text_field :photo, autofocus: true, autocomplete: "photo", placeholder: 'Photo' %>
+    <%= f.text_field :photo, autofocus: true, autocomplete: "photo", placeholder: 'Enter Photo Link' %>
   </div>
 
   <div class="field">
@@ -28,7 +28,7 @@
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
     <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password", placeholder: 'Password' %>
+    <%= f.password_field :password, autocomplete: "new-password", placeholder: 'Enter Password' %>
   </div>
 
 
