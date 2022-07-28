@@ -36,6 +36,11 @@ class PostsController < ApplicationController
 
   def destroy
     puts params
-    Post.find(params[:id]).destroy
+    puts "before within destroy"
+    @post = Post.find(params[:id])
+    @post.destroy
+    puts "after Within destroy"
+    redirect_to user_posts_path(current_user)
+    # Post.find(params[:id]).destroy
   end
 end
