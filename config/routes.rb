@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
  
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
@@ -14,11 +15,6 @@ Rails.application.routes.draw do
   resources :login, only: [:index, :show] do
 
   end
-  # get '/login', to: 'login#index'
-  # get "/users", to: "users#index" 
-  # get "/users/:user_id", to: "users#show" 
-  # get "/users/:user_id/posts", to: "posts#index" 
-  # get "/users/:user_id/posts/:id", to: "posts#show"
-  # post "/users/:user_id/posts/new", to: "posts#new"
+
   
 end
