@@ -12,13 +12,14 @@
 
   <body>
   <div class='sign-up'>
-  <%if user_signed_in?%>
-    <%= button_to "Sign out", destroy_user_session_path, method: :delete, class: 'btn' %>
-  <%end%>
-  
-  <p class="notice"><%= notice %></p>
+    <div class="sign">
+      <%if user_signed_in?%>
+        <%= button_to "Sign out", destroy_user_session_path, method: :delete %>
+      <%end%>
+   </div>
+   <%= yield %>
+    <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
-    <%= yield %>
-  </div
+  </div>
   </body>
 </html>
