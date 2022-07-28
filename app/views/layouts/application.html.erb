@@ -11,7 +11,7 @@
   </head>
 
   <body>
-
+  <div class='sign-up'>
   <%if user_signed_in?%>
     <%= button_to "Sign out", destroy_user_session_path, method: :delete, class: 'btn' %>
   <%end%>
@@ -19,5 +19,6 @@
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
     <%= yield %>
+  </div
   </body>
 </html>
