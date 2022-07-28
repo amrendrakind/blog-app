@@ -7,9 +7,10 @@ Rails.application.routes.draw do
   root "home#index"
   devise_for :users
   resources :users, only: [:index, :show] do
-    resources :posts, only: [:index, :show, :new, :create] do
+    resources :posts, only: [:index, :show, :new, :create, :destroy] do
       resources :comments, only: [:new, :create]
       resources :likes, only: [:new, :create]
+      resources :destroy
     end
   end
   

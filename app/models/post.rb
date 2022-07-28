@@ -21,4 +21,5 @@ class Post < ApplicationRecord
   def recent_comments
     comments.last(5)
   end
+
 end

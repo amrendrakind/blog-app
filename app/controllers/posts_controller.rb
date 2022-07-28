@@ -33,4 +33,9 @@ class PostsController < ApplicationController
   def post_params
     params.require(:post).permit(:title, :text)
   end
+
+  def destroy
+    puts params
+    Post.find(params[:id]).destroy
+  end
 end
