@@ -13,6 +13,12 @@
  *= require_tree .
  *= require_self
  */
+.field-forget {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 #users {
   display: flex;
   flex-direction: column;
@@ -64,6 +70,7 @@
   text-align: right;
 }
 
+.sign-up,
 #newCommentsTemplate,
 #newPostTemplate,
 #userTemplate,
@@ -91,7 +98,7 @@ button {
 }
 
 input[type='text'] {
-  margin: 10px;
+  margin: 0;
 }
 
 input[type='submit'] {
