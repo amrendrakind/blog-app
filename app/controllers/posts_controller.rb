@@ -3,9 +3,9 @@ class PostsController < ApplicationController
     @user = User.find(params[:user_id])
     @posts = @user.posts.includes(:comments)
 
-    respond_to do |format| 
+    respond_to do |format|
       format.html
-      format.json { render json: @posts } 
+      format.json { render json: @posts }
     end
   end
 
@@ -14,11 +14,10 @@ class PostsController < ApplicationController
     @post = User.find(params[:user_id]).posts.find(params[:id])
     @comments = @post.recent_comments
 
-    respond_to do |format| 
+    respond_to do |format|
       format.html
-      format.json { render json: @comments } 
+      format.json { render json: @comments }
     end
-  
   end
 
   def new
@@ -31,12 +30,9 @@ class PostsController < ApplicationController
     post = Post.new(author_id: params[:user_id], title: parameters[:title], text: parameters[:text],
                     comments_counter: 0, likes_counter: 0)
     post.save
-    # post.update_posts_counter
     if post.save
-      # puts "Saved successfully"
       redirect_to user_path(params[:user_id])
     else
-      # puts "Failed to save"
       redirect_to new_user_post_path
     end
   end

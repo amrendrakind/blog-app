@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
   # API
   before_action :authenticate_request, if: :json_request
   attr_reader :current_user
+
   private
 
   def authenticate_request
