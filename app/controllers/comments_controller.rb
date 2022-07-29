@@ -14,8 +14,10 @@ class CommentsController < ApplicationController
       respond_to do |format|
           
           format.json {
-            comment = Comment.new(post_id: params[:post_id], author_id: params[:user_id], text: params[:text])
+            puts @current_user
+            comment = Comment.new(post_id: params[:post_id], author_id: @current_user.id, text: params[:text])
             comment.save
+            render json: "New Comment Added By #{User.find(@current_user.id).name}" 
            }
           format.html {
             print "current user "
