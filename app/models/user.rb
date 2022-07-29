@@ -22,4 +22,10 @@ class User < ApplicationRecord
   def role?
     role
   end
+
+  def authenticate(pwd)
+    puts "Password:"
+    puts encrypted_password
+      password==pwd
+  end  
 end
