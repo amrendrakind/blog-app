@@ -123,7 +123,7 @@
 # Like.create(post_id: sixth_post.id, author_id: first_user.id)
 # Like.create(post_id: seventh_post.id, author_id: second_user.id)
 # Like.create(post_id: eighth_post.id, author_id: second_user.id)
-# #Output 
+# #Output
 
 # puts
 # puts('Recent posts:')
@@ -142,7 +142,7 @@
 # puts(first_comment.post.comments_counter)
 
 # first_like.update_likes_counter
-# puts('likes counter: ')    
+# puts('likes counter: ')
 # puts(first_like.post.likes_counter)
 
 # puts
@@ -162,5 +162,5 @@
 # puts(second_comment.post.comments_counter)
 
 # second_like.update_likes_counter
-# puts('likes counter: ')    
+# puts('likes counter: ')
 # puts(second_like.post.likes_counter)

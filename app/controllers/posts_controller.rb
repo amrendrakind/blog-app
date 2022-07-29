@@ -17,13 +17,13 @@ class PostsController < ApplicationController
 
   def create
     parameters = post_params
-    post = Post.new(author_id: current_user.id, title: parameters[:title], text: parameters[:text], comments_counter: 0,
-                    likes_counter: 0)
+    post = Post.new(author_id: params[:user_id], title: parameters[:title], text: parameters[:text],
+                    comments_counter: 0, likes_counter: 0)
     post.save
     # post.update_posts_counter
     if post.save
       # puts "Saved successfully"
-      redirect_to user_path(current_user)
+      redirect_to user_path(params[:user_id])
     else
       # puts "Failed to save"
       redirect_to new_user_post_path
@@ -32,5 +32,12 @@ class PostsController < ApplicationController
 
   def post_params
     params.require(:post).permit(:title, :text)
+  end
+
+  def destroy
+    post = Post.find(params[:id])
+    post.destroy
+    flash[:notice] = "Post ##{params[:id]} has been deleted"
+    redirect_to user_posts_path(current_user)
   end
 end

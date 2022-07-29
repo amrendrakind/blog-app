@@ -3,4 +3,7 @@
         <p><b><%= post.title %></b></p>
         <p><%= post.text %></p>
         <label class="counters">Comments:<%= post.comments_counter %> Likes:<%= post.likes_counter %> </label>
+        <% if can? :destroy, post %>
+           <%= button_to "Delete", user_post_path(@user, post), method: :delete %>
+        <% end %>
 </div> 

@@ -34,7 +34,7 @@ RSpec.describe Post, type: :model do
     it 'PostsCounter must be an integer greater than or equal to zero.' do
       @post.update_posts_counter
       @post.save
-      expect(@post.author.post_counter).to be > 0
+      expect(@post.author.post_counter).to be.positive?
     end
     it 'validate recent comments method' do
       comment1 = Comment.create(text: 'This is my first comment', post_id: @post.id, author_id: @first_user.id)

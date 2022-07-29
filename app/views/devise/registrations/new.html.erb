@@ -24,6 +24,11 @@
   </div>
 
   <div class="field">
+    <%= f.label :Role %><br />
+    <%= f.text_field :role, autofocus: true, autocomplete: "role", placeholder: 'Role' %>
+  </div>
+
+  <div class="field">
     <%= f.label :password %>
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
