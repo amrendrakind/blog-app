@@ -1,5 +1,8 @@
 <div id="commentsSection">
                 <% post.comments.each do |comment| %>
                 <%= render partial: "shared/single_comment", locals: { comment: comment } %>
+                <% if can? :manage, comment && @user.id == comment.author_id %>
+                    <%= button_to 'Delete comment', user_post_comment_path(@user.id, post.id, comment.id), method: :delete %>
+                <%end%>
                 <% end %>
 </div>  

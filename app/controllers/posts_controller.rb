@@ -35,12 +35,12 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    puts params
-    puts "before within destroy"
+    # puts params
+    # puts "before within destroy"
     @post = Post.find(params[:id])
     @post.destroy
-    puts "after Within destroy"
+    # puts "after Within destroy"
+    flash[:notice] = "Post ##{params[:id]} has been deleted"
     redirect_to user_posts_path(current_user)
-    # Post.find(params[:id]).destroy
-  end
+ end
 end
