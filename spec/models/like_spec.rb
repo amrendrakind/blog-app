@@ -16,7 +16,7 @@ RSpec.describe Like, type: :model do
   context 'Likes validations' do
     it 'validate update_likes_counter method' do
       @like.update_likes_counter
-      expect(@like.post.likes_counter).to be > 0
+      expect(@like.post.likes_counter).to be.positive?
     end
     it 'Must belog to a user' do
       @like.author_id = nil

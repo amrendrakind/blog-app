@@ -28,5 +28,5 @@ class CommentsController < ApplicationController
     comment.destroy
     flash[:notice] = "Comment ##{params[:id]} has been deleted"
     redirect_back(fallback_location: root_path)
- end
+  end
 end

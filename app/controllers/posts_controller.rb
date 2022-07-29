@@ -39,5 +39,5 @@ class PostsController < ApplicationController
     post.destroy
     flash[:notice] = "Post ##{params[:id]} has been deleted"
     redirect_to user_posts_path(current_user)
- end
+  end
 end
