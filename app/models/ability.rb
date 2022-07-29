@@ -16,8 +16,8 @@ class Ability
       can    :manage , Like
       # can :destroy, Post
     else
-      can :manage, Post, author_id: user.id 
-      can :manage, Comment, author_id: user.id
+      can :manage, Post, author_id: user.id
+      can :manage, Comment,author_id: user.id
     end
     # cannot :manage , XXX
     # can    :read   , Tag , released: true
