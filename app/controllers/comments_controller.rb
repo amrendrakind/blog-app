@@ -9,6 +9,8 @@ class CommentsController < ApplicationController
   def create
 
       parameters = comment_params
+      print "Comment"
+      puts comment_params
       respond_to do |format|
           
           format.json {
@@ -16,6 +18,8 @@ class CommentsController < ApplicationController
             comment.save
            }
           format.html {
+            print "current user "
+            puts current_user.id
             comment = Comment.new(post_id: params[:post_id], author_id: current_user.id, text: parameters[:text])
             comment.save
             if comment.save

@@ -1,4 +1,4 @@
-<label> Username: <%=@user.name%>: <%= comment.text%></label>
+<label> Username: <%=comment.author.name%>: <%= comment.text%></label>
 <% if can? :destroy, comment %>
     <%= button_to 'Delete comment', user_post_comment_path(@user, post, comment), method: :delete %>
 <% end %>
