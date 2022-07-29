@@ -7,29 +7,20 @@ class CommentsController < ApplicationController
   end
 
   def create
-    
-    # information = request.raw_post 
-    # data_parsed = JSON.parse(information)
-    
-    # puts "From postman" 
-    # puts data_parsed
-    
-    # respond_to do |format| 
-    #   format.html
-    #   format.json { render json: @posts } 
-    # end
-
-
-    # parameters = comment_params
-    # comment = Comment.new(data_parsed)
-    
-    comment = Comment.new(post_id: params[:post_id], author_id: current_user.id, text: parameters[:text])
-    comment.save
-
-    if comment.save
-      redirect_to user_post_path(id: params[:post_id])
+    if request.format =='json'
+      information = request.raw_post 
+      data_parsed = JSON.parse(information)
+      Comment.new(post_id: params[:post_id], author_id: current_user.id, text: data_parsed['text'])
     else
-      redirect_to new_user_post_comment
+      parameters = comment_params
+      comment = Comment.new(post_id: params[:post_id], author_id: current_user.id, text: parameters[:text])
+      comment.save
+
+      if comment.save
+        redirect_to user_post_path(id: params[:post_id])
+      else
+        redirect_to new_user_post_comment
+      end
     end
   end
 
