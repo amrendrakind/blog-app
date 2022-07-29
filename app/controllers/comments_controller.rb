@@ -3,11 +3,26 @@ class CommentsController < ApplicationController
     @user = User.find(params[:user_id])
     @post = User.find(params[:user_id]).posts.find(params[:post_id])
     @comments = @post.recent_comments
-    # @user = current_user
+
   end
 
   def create
-    parameters = comment_params
+    
+    # information = request.raw_post 
+    # data_parsed = JSON.parse(information)
+    
+    # puts "From postman" 
+    # puts data_parsed
+    
+    # respond_to do |format| 
+    #   format.html
+    #   format.json { render json: @posts } 
+    # end
+
+
+    # parameters = comment_params
+    # comment = Comment.new(data_parsed)
+    
     comment = Comment.new(post_id: params[:post_id], author_id: current_user.id, text: parameters[:text])
     comment.save
 
