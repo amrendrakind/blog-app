@@ -91,5 +91,5 @@ gem 'cancancan'
 
 gem 'rswag'
 
-gem 'rswag-api' 
-gem 'rswag-ui' 
+gem 'rswag-api'
+gem 'rswag-ui'
