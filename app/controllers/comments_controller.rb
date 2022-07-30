@@ -17,7 +17,7 @@ class CommentsController < ApplicationController
         render json: "New Comment Added By #{@current_user.name}"
       end
       format.html do
-        comment = Comment.new(post_id: params[:post_id], author_id: current_user.id, text: parameters[:text])
+        comment = Comment.new(post_id: params[:post_id], author_id: params[:user_id], text: parameters[:text])
         comment.save
         if comment.save
           redirect_to user_post_path(id: params[:post_id])

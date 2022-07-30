@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '3.1.2'
+ruby '3.0.3'
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem 'rails', '~> 7.0.3'
@@ -61,6 +61,7 @@ group :development, :test do
   gem 'debug', platforms: %i[mri mingw x64_mingw]
   gem 'rails-controller-testing'
   gem 'rspec-rails', '~> 5.0.0'
+  gem 'rswag-specs'
 end
 
 group :development do
@@ -87,3 +88,8 @@ gem 'bullet', group: 'development'
 gem 'devise'
 
 gem 'cancancan'
+
+gem 'rswag'
+
+gem 'rswag-api' 
+gem 'rswag-ui' 
