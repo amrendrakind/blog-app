@@ -1,0 +1,119 @@
+---
+openapi: 3.0.1
+info:
+  title: API V1
+  version: v1
+paths:
+  authenticate:
+    post:
+      summary: Creates a json token
+      tags:
+      - authenticate
+      parameters: []
+      responses:
+        '200':
+          description: auth token generated
+        '401':
+          description: invalid request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                password:
+                  type: string
+              required:
+              - email
+              - password
+  "/users/{user_id}/posts.json":
+    get:
+      summary: Retrieves a list of post
+      tags:
+      - Posts
+      parameters:
+      - name: user_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: post found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  title:
+                    type: string
+                  text:
+                    type: string
+                  likes_counter:
+                    type: integer
+                  comments_counter:
+                    type: integer
+                  timestamps:
+                    type: string
+                  created_at:
+                    type: string
+                  updated_at:
+                    type: string
+                  author_id:
+                    type: integer
+            application/xml:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  title:
+                    type: string
+                  text:
+                    type: string
+                  likes_counter:
+                    type: integer
+                  comments_counter:
+                    type: integer
+                  timestamps:
+                    type: string
+                  created_at:
+                    type: string
+                  updated_at:
+                    type: string
+                  author_id:
+                    type: integer
+        '404':
+          description: post not found
+        '406':
+          description: unsupported accept header
+  "/users/{User_id}/posts/{post_id}/comments":
+    post:
+      summary: Creates a comment
+      tags:
+      - comments
+      parameters: []
+      responses:
+        '201':
+          description: comments created
+        '422':
+          description: invalid request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                text:
+                  type: string
+              required:
+              - text
+servers:
+- url: http://{defaultHost}
+  variables:
+    defaultHost:
+      default: www.example.com
